@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Hadji Djibril DIALLO — Ingénieur Aérospatial</title>
+<meta name="description" content="Portfolio de El Hadji Djibril DIALLO, ingénieur aérospatial spécialisé en propulsion, Ecole Centrale de Lyon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bleu:#1b2d5b;
+  --bleu2:#253870;
+  --or:#c9a84c;
+  --or-light:#f5edd8;
+  --bg:#f6f4f0;
+  --bg2:#ffffff;
+  --text:#1a1a1a;
+  --text2:#3d3d3d;
+  --text3:#767676;
+  --border:#ddd9d0;
+  --border-l:#eceae4;
+  --ff-s:'Source Serif 4',Georgia,serif;
+  --ff-d:'DM Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--ff-d);font-size:15px;line-height:1.7;}
+
+/* TOP BAR */
+.top-bar{height:3px;background:linear-gradient(90deg,var(--bleu) 60%,var(--or) 100%);}
+
+/* NAV */
+nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,0.04);}
+.nav-in{max-width:960px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:58px;}
+.brand{font-family:var(--ff-s);font-size:17px;font-weight:400;color:var(--bleu);letter-spacing:0.01em;text-decoration:none;}
+.brand em{font-style:normal;font-weight:300;color:var(--text3);}
+.nav-links{display:flex;}
+.nav-links a{
+  padding:0 13px;height:58px;display:flex;align-items:center;
+  font-size:11.5px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--text3);text-decoration:none;cursor:pointer;
+  border-bottom:2px solid transparent;transition:all .15s;
+}
+.nav-links a:hover,.nav-links a.on{color:var(--bleu);border-bottom-color:var(--or);}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--bleu);border-radius:2px;transition:all .2s;}
+
+/* PAGE */
+.page{max-width:960px;margin:0 auto;padding:0 2rem 5rem;}
+
+/* HERO */
+.hero{padding:3rem 0 2.5rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem;display:flex;gap:2.5rem;align-items:flex-start;}
+.avatar{width:100px;height:100px;background:var(--bleu);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--ff-s);font-size:24px;font-weight:300;color:#fff;letter-spacing:.04em;}
+.hero-r{flex:1;}
+.pretitle{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--or);font-weight:600;margin-bottom:9px;}
+.hero h1{font-family:var(--ff-s);font-size:clamp(30px,4.5vw,46px);font-weight:300;line-height:1.1;color:var(--bleu);margin-bottom:5px;}
+.hero h1 strong{font-weight:500;}
+.hero-sub{font-size:13.5px;color:var(--text3);margin-bottom:14px;font-style:italic;}
+.hero-bio{font-size:13.5px;color:var(--text2);line-height:1.85;max-width:580px;margin-bottom:15px;}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px;}
+.tag{padding:4px 11px;font-size:11px;font-weight:500;letter-spacing:.04em;border:1px solid var(--border);color:var(--text3);background:#fff;}
+.tag-b{border-color:var(--bleu);color:var(--bleu);background:#eef1f9;}
+.tag-o{border-color:var(--or);color:#7a5c10;background:var(--or-light);}
+.contact-mini{display:flex;gap:1.2rem;flex-wrap:wrap;}
+.cm{font-size:12px;color:var(--text3);display:flex;align-items:center;gap:6px;}
+.cm-dot{width:5px;height:5px;border-radius:50%;background:var(--or);flex-shrink:0;}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-bottom:2.8rem;}
+.stat{background:#fff;padding:1.2rem 1rem;text-align:center;}
+.sn{font-family:var(--ff-s);font-size:34px;font-weight:300;color:var(--bleu);display:block;line-height:1;}
+.sl{font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-top:4px;display:block;}
+
+/* SECTION */
+.sec{margin-bottom:3rem;}
+.sh{display:flex;align-items:baseline;gap:.8rem;margin-bottom:1.5rem;padding-bottom:8px;border-bottom:1.5px solid var(--bleu);}
+.snum{font-size:10.5px;color:var(--or);font-weight:700;letter-spacing:.14em;}
+.stit{font-family:var(--ff-s);font-size:22px;font-weight:400;color:var(--bleu);}
+
+/* TIMELINE */
+.tl{position:relative;padding-left:1.8rem;}
+.tl::before{content:'';position:absolute;left:7px;top:6px;bottom:0;width:1px;background:var(--border);}
+.ti{position:relative;margin-bottom:1.9rem;}
+.td{position:absolute;left:-1.87rem;top:5px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--bleu);}
+.td.or{border-color:var(--or);}
+.td.g{border-color:#aaa;}
+.tdate{font-size:11px;font-weight:700;letter-spacing:.07em;color:var(--bleu);margin-bottom:2px;}
+.tdate.or{color:#956c10;}
+.tdate.g{color:#888;}
+.ttit{font-size:14px;font-weight:500;color:var(--text);}
+.tlieu{font-size:12.5px;color:var(--text3);margin-bottom:4px;}
+.tdesc{font-size:13px;color:var(--text2);line-height:1.75;}
+
+/* SKILL GRID */
+.sk-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.sk-card{background:#fff;border:1px solid var(--border);padding:1.2rem;}
+.sk-label{font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--or);font-weight:700;margin-bottom:9px;}
+.sk-items{display:flex;flex-wrap:wrap;gap:6px;}
+.sk-item{padding:3px 10px;font-size:12px;background:var(--bg);border:1px solid var(--border-l);color:var(--text2);}
+
+/* PROJECTS */
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-bottom:2px;}
+.pc{background:#fff;padding:1.3rem;cursor:pointer;transition:background .15s;position:relative;}
+.pc:hover{background:#f0f3fa;}
+.pr{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--or);font-weight:700;margin-bottom:5px;}
+.pt{font-family:var(--ff-s);font-size:16.5px;font-weight:400;color:var(--text);margin-bottom:5px;line-height:1.35;}
+.pd{font-size:12.5px;color:var(--text2);line-height:1.65;}
+.pl{font-size:11.5px;color:var(--bleu);margin-top:9px;font-weight:500;}
+.yr-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin:18px 0 8px;padding-left:2px;}
+
+/* AWARDS */
+.aw-item{display:flex;gap:1.1rem;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--border-l);}
+.aw-item:first-child{border-top:1px solid var(--border-l);}
+.aw-year{min-width:52px;font-size:11px;font-weight:700;color:var(--bleu);padding-top:2px;}
+.aw-tit{font-size:14px;font-weight:500;color:var(--text);}
+.aw-lieu{font-size:12px;color:var(--text3);}
+
+/* COMMUNITY */
+.com-item{display:flex;gap:1.1rem;padding:11px 0;border-bottom:1px solid var(--border-l);}
+.com-item:first-child{border-top:1px solid var(--border-l);}
+.com-per{min-width:80px;font-size:11px;color:var(--text3);padding-top:2px;}
+.com-role{font-size:14px;font-weight:500;color:var(--text);}
+.com-org{font-size:12.5px;color:var(--bleu);}
+.com-desc{font-size:12px;color:var(--text3);}
+
+/* GALERIE */
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-bottom:2rem;}
+.gal-card{
+  background:var(--bleu);aspect-ratio:4/3;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:12px;cursor:pointer;position:relative;overflow:hidden;
+  transition:opacity .2s;
+}
+.gal-card:nth-child(2){background:#253870;}
+.gal-card:nth-child(3){background:#162348;}
+.gal-card:nth-child(4){background:#0f1b36;}
+.gal-card:nth-child(5){background:#1e3060;}
+.gal-card:nth-child(6){background:#2a4070;}
+.gal-card:hover{opacity:.88;}
+.gal-ph{position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);font-size:28px;opacity:.2;}
+.gal-add{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;}
+.gal-add span{display:block;font-size:28px;color:rgba(255,255,255,.3);margin-bottom:4px;}
+.gal-add p{font-size:11px;color:rgba(255,255,255,.4);}
+.gal-lb{font-size:11.5px;color:rgba(255,255,255,.92);font-weight:500;position:relative;z-index:1;}
+.gal-tp{font-size:10.5px;color:rgba(255,255,255,.55);position:relative;z-index:1;}
+
+/* EVENTS */
+.ev-list{display:flex;flex-direction:column;}
+.ev{display:flex;gap:1.1rem;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border-l);}
+.ev:first-child{border-top:1px solid var(--border-l);}
+.ev-date{min-width:52px;background:var(--bleu);color:#fff;text-align:center;padding:6px 4px;flex-shrink:0;}
+.ev-date.or2{background:var(--or);}
+.ev-m{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:block;}
+.ev-j{font-size:20px;font-family:var(--ff-s);font-weight:300;line-height:1;display:block;}
+.ev-y{font-size:9.5px;color:rgba(255,255,255,.65);display:block;}
+.ev-cat{font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--or);font-weight:700;margin-bottom:2px;}
+.ev-tit{font-size:14px;font-weight:500;color:var(--text);}
+.ev-lieu{font-size:12px;color:var(--text3);}
+
+/* ARTICLES */
+.art{display:flex;gap:1.2rem;padding:12px 0;border-bottom:1px solid var(--border-l);cursor:pointer;transition:background .1s;}
+.art:first-child{border-top:1px solid var(--border-l);}
+.art:hover .atit{color:var(--bleu);}
+.amet{min-width:80px;text-align:right;}
+.adate{font-size:11.5px;color:var(--text3);display:block;margin-bottom:2px;}
+.acat{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--or);}
+.atit{font-family:var(--ff-s);font-size:16px;font-weight:400;color:var(--text);transition:color .15s;line-height:1.35;margin-bottom:4px;}
+.aex{font-size:12.5px;color:var(--text3);line-height:1.65;}
+.art-note{font-size:12.5px;color:var(--text3);margin-top:1.5rem;font-style:italic;border-left:3px solid var(--or);padding-left:14px;}
+
+/* CONTACT */
+.ct-bloc{background:#fff;border:1px solid var(--border);padding:2rem;margin-bottom:1.5rem;}
+.ct-intro{font-size:13.5px;color:var(--text2);line-height:1.85;margin-bottom:1.6rem;max-width:520px;}
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;}
+.ct-row{display:flex;gap:12px;align-items:center;}
+.ct-ic{width:32px;height:32px;background:var(--bleu);display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;flex-shrink:0;font-family:var(--ff-d);font-weight:600;}
+.ct-lbl{color:var(--text3);display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;}
+.ct-val{color:var(--text);font-weight:500;font-size:13px;}
+.ct-val a{color:var(--bleu);text-decoration:none;}
+.ct-val a:hover{text-decoration:underline;}
+
+/* LANG */
+.lang-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:1rem;}
+.lang{background:#fff;border:1px solid var(--border);padding:10px 16px;}
+.lnom{font-weight:500;font-size:14px;color:var(--text);}
+.lniv{font-size:12px;color:var(--bleu);}
+
+/* FOOTER */
+footer{background:#fff;border-top:1px solid var(--border);margin-top:3rem;}
+.fi{max-width:960px;margin:0 auto;padding:1.3rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.ft{font-size:11.5px;color:var(--text3);}
+.fo{font-size:12px;color:var(--or);font-weight:600;}
+
+/* SECTIONS */
+.tab-section{display:none;}
+.tab-section.active{display:block;animation:fadeIn .3s ease both;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+
+/* RESPONSIVE */
+@media(max-width:680px){
+  .hero{flex-direction:column;gap:1.4rem;}
+  .avatar{width:72px;height:72px;font-size:20px;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .sk-grid,.pg,.ct-grid{grid-template-columns:1fr;}
+  .gal-grid{grid-template-columns:repeat(2,1fr);}
+  .nav-links{display:none;flex-direction:column;position:absolute;top:58px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:.5rem 0;z-index:100;}
+  .nav-links.open{display:flex;}
+  .nav-links a{height:44px;padding:0 2rem;border-bottom:none;border-left:3px solid transparent;}
+  .nav-links a.on{border-left-color:var(--or);}
+  .nav-toggle{display:flex;}
+  nav{position:relative;}
+  .amet{min-width:60px;}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="#home" onclick="show('home',null)">El Hadji Djibril <em>DIALLO</em></a>
+    <div class="nav-links" id="navLinks">
+      <a class="on" onclick="show('home',this);closeNav()">Accueil</a>
+      <a onclick="show('parcours',this);closeNav()">Parcours</a>
+      <a onclick="show('projets',this);closeNav()">Projets</a>
+      <a onclick="show('articles',this);closeNav()">Articles</a>
+      <a onclick="show('evenements',this);closeNav()">Événements</a>
+      <a onclick="show('contact',this);closeNav()">Contact</a>
+    </div>
+    <div class="nav-toggle" onclick="toggleNav()" id="navToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+<!-- ===== HOME ===== -->
+<div id="home-section" class="tab-section active">
+  <div class="hero">
+    <div class="avatar">EDD</div>
+    <div class="hero-r">
+      <div class="pretitle">Ingénieur Aérospatial · Propulsion · Ecole Centrale de Lyon</div>
+      <h1>El Hadji Djibril<br><strong>DIALLO</strong></h1>
+      <div class="hero-sub">MSc Aerospace Engineering — Propulsion Track &nbsp;·&nbsp; Lyon, France</div>
+      <p class="hero-bio">
+        Motivé, dynamique et rigoureux, je suis étudiant en dernière année d'ingénierie aérospatiale à l'Ecole Centrale de Lyon, spécialisé en Propulsion. Titulaire d'un diplôme d'Ingénieur en Design Aéronautique de l'Ecole Polytechnique de Thiès (avec mention Très Honorable), je combine rigueur académique, travaux de recherche et engagement intellectuel sur les grandes questions de notre temps.
+      </p>
+      <div class="tags">
+        <span class="tag tag-b">Propulsion spatiale</span>
+        <span class="tag tag-b">Turbomachines</span>
+        <span class="tag tag-b">CFD / Simulation</span>
+        <span class="tag tag-b">Propulsion solide</span>
+        <span class="tag tag-o">Boursier du Gouvernement Français 2025–26</span>
+        <span class="tag">R&D Aérospatial</span>
+        <span class="tag">Écriture & débats</span>
+      </div>
+      <div class="contact-mini">
+        <span class="cm"><span class="cm-dot"></span>Lyon, France</span>
+        <span class="cm"><span class="cm-dot"></span>el-hadji-djibril.diallo@etu.ec-lyon.fr</span>
+        <span class="cm"><span class="cm-dot"></span>+33 7 58 51 56 36</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><span class="sn">3</span><span class="sl">Grandes écoles</span></div>
+    <div class="stat"><span class="sn">10+</span><span class="sl">Projets académiques</span></div>
+    <div class="stat"><span class="sn">3</span><span class="sl">Stages réalisés</span></div>
+    <div class="stat"><span class="sn">5</span><span class="sl">Distinctions & prix</span></div>
+  </div>
+
+  <div class="sec">
+    <div class="sh"><span class="snum">COMPÉTENCES</span><span class="stit">Langages, outils & certifications</span></div>
+    <div class="sk-grid">
+      <div class="sk-card">
+        <div class="sk-label">Langages de programmation</div>
+        <div class="sk-items">
+          <span class="sk-item">Python</span>
+          <span class="sk-item">MATLAB</span>
+          <span class="sk-item">C</span>
+          <span class="sk-item">OpenMDAO</span>
+          <span class="sk-item">LaTeX</span>
+        </div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-label">Logiciels & simulations</div>
+        <div class="sk-items">
+          <span class="sk-item">ANSYS Fluent</span>
+          <span class="sk-item">GMAT</span>
+          <span class="sk-item">OpenRocket</span>
+          <span class="sk-item">openMotor</span>
+          <span class="sk-item">MATLAB/Simulink</span>
+          <span class="sk-item">OpenVSP</span>
+          <span class="sk-item">XFLR5</span>
+          <span class="sk-item">SolidWorks</span>
+          <span class="sk-item">AutoCAD</span>
+          <span class="sk-item">FluidSim</span>
+          <span class="sk-item">Jupyter</span>
+          <span class="sk-item">VS Code</span>
+        </div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-label">Certificats obtenus</div>
+        <div class="sk-items">
+          <span class="sk-item">Ambassadeur du Spatial (CNES)</span>
+          <span class="sk-item">Remote Sensing (NASA)</span>
+          <span class="sk-item">Deep Learning (NVIDIA)</span>
+          <span class="sk-item">Elements of AI (Univ. Helsinki)</span>
+        </div>
+      </div>
+      <div class="sk-card">
+        <div class="sk-label">Centres d'intérêt</div>
+        <div class="sk-items">
+          <span class="sk-item">Innovations aérospatiales</span>
+          <span class="sk-item">Géopolitique</span>
+          <span class="sk-item">Histoire</span>
+          <span class="sk-item">Économie</span>
+          <span class="sk-item">Quiz & compétitions</span>
+          <span class="sk-item">Football</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PARCOURS ===== -->
+<div id="parcours-section" class="tab-section">
+  <div class="sec" style="padding-top:2.5rem;">
+    <div class="sh"><span class="snum">01</span><span class="stit">Formation académique</span></div>
+    <div class="tl">
+      <div class="ti">
+        <div class="td"></div>
+        <div class="tdate">Sept 2025 — Sept 2026</div>
+        <div class="ttit">MSc Aerospace Engineering — Propulsion Track</div>
+        <div class="tlieu">Ecole Centrale de Lyon · Lyon Ecully, France</div>
+        <div class="tdesc">Fondamentaux des turbomachines, Combustion pour la propulsion, Simulation numérique des écoulements, Physique des écoulements turbulents, Aérodynamique transonique, Deep learning et intelligence artificielle.</div>
+      </div>
+      <div class="ti">
+        <div class="td or"></div>
+        <div class="tdate or">Jan 2023 — Août 2025</div>
+        <div class="ttit">Ingénieur en Design Aéronautique — Mention Très Honorable</div>
+        <div class="tlieu">Ecole Polytechnique de Thiès (EPT) · Thiès, Sénégal</div>
+        <div class="tdesc">Design d'aéronefs, Mécanique orbitale, Architecture satellite, Aérodynamique subsonique/supersonique/hypersonique, Propulsion aérospatiale, Mécanique du vol et performances, Structures aéronautiques, Matériaux composites, Mécanique structurale, Systèmes avioniques, Systèmes de contrôle, Fiabilité et Maintenance, Traitement du signal.</div>
+      </div>
+      <div class="ti">
+        <div class="td g"></div>
+        <div class="tdate g">Fév 2021 — Déc 2022</div>
+        <div class="ttit">Classes Préparatoires Scientifiques — Mention Très Honorable</div>
+        <div class="tlieu">Ecole Polytechnique de Thiès · Thiès, Sénégal</div>
+        <div class="tdesc">Mathématiques, physique, économie et informatique.</div>
+      </div>
+      <div class="ti">
+        <div class="td g"></div>
+        <div class="tdate g">Sept 2020</div>
+        <div class="ttit">Baccalauréat S1 (Mathématiques & Physique) — Mention Bien</div>
+        <div class="tlieu">Lycée zone de recasement de Keur Massar · Dakar, Sénégal</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sh"><span class="snum">02</span><span class="stit">Expériences professionnelles</span></div>
+    <div class="tl">
+      <div class="ti">
+        <div class="td"></div>
+        <div class="tdate">Juin 2025 — Août 2025</div>
+        <div class="ttit">Stagiaire Recherche — Projet de Fin d'Études</div>
+        <div class="tlieu">Ecole Polytechnique de Thiès · Thiès, Sénégal</div>
+        <div class="tdesc">
+          <strong>Titre :</strong> Analyse et évaluation des modèles de propulsion solide d'openMotor v0.6.0, et introduction d'une méthode de conception inverse des grains pour moteurs-fusées à propergol solide basée sur le contrôle optimal de poussée.<br><br>
+          — Revue des modèles de balistique interne : pression, vitesse de combustion érosive, transfert thermique, pertes.<br>
+          — Prédiction de la balistique interne des SRM : 0D, Q1D, 2D/3D.<br>
+          — Analyse du code source d'openMotor et de ses interactions internes.<br>
+          — Évaluation du simulateur : hypothèses, adaptabilité, précision, limitations.<br>
+          — Introduction d'une méthode de conception inverse par optimisation Dymos/OpenMDAO.
+        </div>
+      </div>
+      <div class="ti">
+        <div class="td or"></div>
+        <div class="tdate or">Sept 2024 — Oct 2024</div>
+        <div class="ttit">Stagiaire — Département Ingénierie & Planification</div>
+        <div class="tlieu">Air Senegal SA · Dakar, Sénégal</div>
+        <div class="tdesc">Gestion de flotte d'aéronefs via ENVISION · Analyse de documentation technique : ATL, SB, AD · Création de bons de travail via AirbusWorld.</div>
+      </div>
+      <div class="ti">
+        <div class="td g"></div>
+        <div class="tdate g">Sept 2022 — Oct 2022</div>
+        <div class="ttit">Stagiaire — Support Maintenance Aéronautique</div>
+        <div class="tlieu">Base Aérienne — Armée de l'Air Sénégalaise · Thiès, Sénégal</div>
+        <div class="tdesc">Travaux de maintenance sur hélicoptères et aéronefs à voilure fixe · Étude et conformité réglementaire des hangars selon les normes AMO.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sh"><span class="snum">03</span><span class="stit">Distinctions & Prix</span></div>
+    <div>
+      <div class="aw-item">
+        <div class="aw-year">2025–26</div>
+        <div>
+          <div class="aw-tit">🏅 Boursier du Gouvernement Français</div>
+          <div class="aw-lieu">Bourse France–Sénégal 2025–2026 · Lyon, France</div>
+        </div>
+      </div>
+      <div class="aw-item">
+        <div class="aw-year">Nov 2024</div>
+        <div>
+          <div class="aw-tit">Vainqueur du Quiz Interne — EPT</div>
+          <div class="aw-lieu">Équipe DIC2 · Thiès, Sénégal</div>
+        </div>
+      </div>
+      <div class="aw-item">
+        <div class="aw-year">Juil 2023</div>
+        <div>
+          <div class="aw-tit">Finaliste — Duel Polytech (Compétition nationale de quiz)</div>
+          <div class="aw-lieu">Représentant de l'EPT · Dakar, Sénégal</div>
+        </div>
+      </div>
+      <div class="aw-item">
+        <div class="aw-year">Fév 2023</div>
+        <div>
+          <div class="aw-tit">Demi-finaliste — ActInSpace International</div>
+          <div class="aw-lieu">Hackathon spatial CNES, ESA, Aerospace Valley · Cannes, France</div>
+        </div>
+      </div>
+      <div class="aw-item">
+        <div class="aw-year">Nov 2022</div>
+        <div>
+          <div class="aw-tit">🏆 Vainqueur — ActInSpace Sénégal</div>
+          <div class="aw-lieu">Hackathon spatial CNES, ESA, Aerospace Valley · Dakar, Sénégal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sh"><span class="snum">04</span><span class="stit">Engagement associatif</span></div>
+    <div>
+      <div class="com-item">
+        <div class="com-per">Déc 2023<br>Nov 2024</div>
+        <div>
+          <div class="com-role">Président — Bureau des Étudiants (BDE) de l'EPT</div>
+          <div class="com-org">Ecole Polytechnique de Thiès</div>
+          <div class="com-desc">Membre du Conseil d'Administration et du Conseil Académique · Planification et organisation d'activités académiques, sociales et culturelles.</div>
+        </div>
+      </div>
+      <div class="com-item">
+        <div class="com-per">Jan–Déc 2023</div>
+        <div>
+          <div class="com-role">Vice-Président — Junior Polytech Competition</div>
+          <div class="com-org">Compétition scientifique nationale · EPT</div>
+        </div>
+      </div>
+      <div class="com-item">
+        <div class="com-per">Jan–Déc 2022</div>
+        <div>
+          <div class="com-role">Chef du Département Physique — Junior Polytech Competition</div>
+          <div class="com-org">Compétition scientifique nationale · EPT</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROJETS ===== -->
+<div id="projets-section" class="tab-section">
+  <div class="sec" style="padding-top:2.5rem;">
+    <div class="sh"><span class="snum">PROJETS</span><span class="stit">Projets académiques clés</span></div>
+
+    <p class="yr-label">2025 – 2026 · Ecole Centrale de Lyon</p>
+    <div class="pg">
+      <div class="pc">
+        <div class="pr">Turbomachines · Aérothermodynamique</div>
+        <div class="pt">Design global d'un turboréacteur</div>
+        <div class="pd">Conception complète d'un moteur turbofan couvrant l'aérothermodynamique du cycle et la conception structurale des composants principaux.</div>
+        <div class="pl">En cours · 2025–2026</div>
+      </div>
+      <div class="pc">
+        <div class="pr">Design Aéronautique</div>
+        <div class="pt">Conception préliminaire d'un avion d'affaires</div>
+        <div class="pd">Étude de design préliminaire couvrant aérodynamique, sélection de la propulsion, performances de vol et dimensionnement structural.</div>
+        <div class="pl">En cours · 2025–2026</div>
+      </div>
+      <div class="pc">
+        <div class="pr">Compresseurs axiaux</div>
+        <div class="pt">Design d'un étage de compresseur axial</div>
+        <div class="pd">Conception aérodynamique d'un étage compresseur : triangles des vitesses, profils d'aubes, analyse des performances.</div>
+        <div class="pl">En cours · 2025–2026</div>
+      </div>
+    </div>
+
+    <p class="yr-label">2024 – 2025 · Ecole Polytechnique de Thiès</p>
+    <div class="pg">
+      <div class="pc">
+        <div class="pr">Propulsion solide · Recherche</div>
+        <div class="pt">Évaluation d'openMotor v0.6.0 & méthode inverse de grain</div>
+        <div class="pd">Analyse des modèles de balistique interne d'openMotor. Introduction d'une méthode de conception inverse des grains par optimisation Dymos/OpenMDAO pour le contrôle optimal de poussée.</div>
+      </div>
+      <div class="pc">
+        <div class="pr">Mission spatiale · Observation de la Terre</div>
+        <div class="pt">Mission de surveillance maritime & détection de pollution</div>
+        <div class="pd">Design et analyse complète d'une mission spatiale dédiée au monitoring maritime et à la détection de pollution marine.</div>
+      </div>
+      <div class="pc">
+        <div class="pr">Drones & systèmes UAV</div>
+        <div class="pt">UAV VTOL à voilure fixe hybride</div>
+        <div class="pd">Conception d'un drone hybride combinant les avantages de la voilure fixe (endurance) et du décollage/atterrissage vertical.</div>
+      </div>
+      <div class="pc">
+        <div class="pr">Matériaux composites · Numérique</div>
+        <div class="pt">Code de design & optimisation de laminés composites</div>
+        <div class="pd">Développement d'un outil numérique complet pour le design, le test et l'optimisation de structures composites stratifiées.</div>
+      </div>
+    </div>
+
+    <p class="yr-label">2023 – 2024</p>
+    <div class="pg">
+      <div class="pc">
+        <div class="pr">Propulsion · OpenRocket</div>
+        <div class="pt">Design expérimental de fusée</div>
+        <div class="pd">Conception et simulation d'une fusée expérimentale avec OpenRocket : géométrie, propulsion, stabilité et performances.</div>
+      </div>
+      <div class="pc">
+        <div class="pr">Structures aéronautiques</div>
+        <div class="pt">Étude structurale de l'Airbus A330-300</div>
+        <div class="pd">Analyse structurale de l'A330-300 en vol et au sol : enveloppes de charges, contraintes et dimensionnement des éléments.</div>
+      </div>
+      <div class="pc">
+        <div class="pr">Aérodynamique · Python</div>
+        <div class="pt">Problèmes d'interaction de chocs aérodynamiques supersoniques</div>
+        <div class="pd">Résolution de problèmes d'interaction d'ondes de choc en régime supersonique par développement de codes Python dédiés.</div>
+      </div>
+      <div class="pc">
+        <div class="pr">Systèmes échantillonnés · MATLAB</div>
+        <div class="pt">Design de contrôleurs numériques</div>
+        <div class="pd">Études de systèmes échantillonnés : design de contrôleurs numériques via MATLAB/Simulink.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ARTICLES ===== -->
+<div id="articles-section" class="tab-section">
+  <div class="sec" style="padding-top:2.5rem;">
+    <div class="sh"><span class="snum">ARTICLES</span><span class="stit">Réflexions & publications</span></div>
+    <p style="font-size:13.5px;color:var(--text3);margin-bottom:1.6rem;font-style:italic;">
+      Espace d'écriture sur les grandes questions de l'aérospatiale, de la géopolitique et des enjeux sociétaux contemporains.
+    </p>
+    <div>
+      <div class="art">
+        <div class="amet"><span class="adate">À venir</span><span class="acat">Space Economy</span></div>
+        <div>
+          <div class="atit">La nouvelle course à l'espace : innovation ou nouvelle inégalité mondiale ?</div>
+          <div class="aex">SpaceX, Blue Origin, Virgin Galactic — l'espace se privatise à grande vitesse. Quelles conséquences pour l'accès universel et le droit spatial international ?</div>
+        </div>
+      </div>
+      <div class="art">
+        <div class="amet"><span class="adate">À venir</span><span class="acat">Environnement</span></div>
+        <div>
+          <div class="atit">Vers une propulsion verte : réalités et mirages</div>
+          <div class="aex">Hydrogène, SAF, méthane liquide... L'industrie aérospatiale peut-elle réellement décarboner ses systèmes de propulsion ? État de l'art et perspectives.</div>
+        </div>
+      </div>
+      <div class="art">
+        <div class="amet"><span class="adate">À venir</span><span class="acat">IA & Ingénierie</span></div>
+        <div>
+          <div class="atit">Intelligence artificielle et conception de moteurs : outil ou menace pour l'ingénieur ?</div>
+          <div class="aex">Les algorithmes d'optimisation révolutionnent la conception aérospatiale. Une réflexion sur le rôle humain dans l'ingénierie augmentée par l'IA.</div>
+        </div>
+      </div>
+      <div class="art">
+        <div class="amet"><span class="adate">À venir</span><span class="acat">Géopolitique</span></div>
+        <div>
+          <div class="atit">Artémis et la Lune : enjeux géopolitiques d'une nouvelle ère spatiale</div>
+          <div class="aex">Pourquoi la Lune redevient un terrain de compétition entre grandes puissances, et ce que cela implique pour le droit spatial international.</div>
+        </div>
+      </div>
+      <div class="art">
+        <div class="amet"><span class="adate">À venir</span><span class="acat">Afrique & Espace</span></div>
+        <div>
+          <div class="atit">L'Afrique, acteur spatial émergent : ambitions, défis et opportunités</div>
+          <div class="aex">Du Sénégal à l'Éthiopie, plusieurs pays africains développent des programmes spatiaux. Analyse d'un enjeu de souveraineté technologique.</div>
+        </div>
+      </div>
+    </div>
+    <p class="art-note">Cette section sera enrichie au fil de mes publications. N'hésitez pas à me contacter pour tout échange intellectuel ou proposition de collaboration éditoriale.</p>
+  </div>
+</div>
+
+<!-- ===== ÉVÉNEMENTS ===== -->
+<div id="evenements-section" class="tab-section">
+  <div class="sec" style="padding-top:2.5rem;">
+    <div class="sh"><span class="snum">GALERIE</span><span class="stit">Galerie & Événements</span></div>
+
+    <p class="yr-label" style="margin-top:0;">Photos — à personnaliser avec vos vraies photos</p>
+    <div class="gal-grid" style="margin-bottom:2rem;">
+      <div class="gal-card">
+        <div class="gal-ph">✈️</div>
+        <div class="gal-lb">Stage Air Senegal</div>
+        <div class="gal-tp">Dakar · Oct. 2024</div>
+      </div>
+      <div class="gal-card">
+        <div class="gal-ph">🚀</div>
+        <div class="gal-lb">Projet propulsion solide (EPT)</div>
+        <div class="gal-tp">Thiès · 2025</div>
+      </div>
+      <div class="gal-card">
+        <div class="gal-ph">🏆</div>
+        <div class="gal-lb">Victoire ActInSpace Sénégal</div>
+        <div class="gal-tp">Dakar · Nov. 2022</div>
+      </div>
+      <div class="gal-card">
+        <div class="gal-ph">🎓</div>
+        <div class="gal-lb">Diplôme EPT — Mention Très Honorable</div>
+        <div class="gal-tp">Thiès · Août 2025</div>
+      </div>
+      <div class="gal-card">
+        <div class="gal-ph">🌍</div>
+        <div class="gal-lb">Arrivée à l'Ecole Centrale de Lyon</div>
+        <div class="gal-tp">Lyon Ecully · Sept. 2025</div>
+      </div>
+      <div class="gal-card">
+        <div class="gal-ph">🛸</div>
+        <div class="gal-lb">Simulations & laboratoires</div>
+        <div class="gal-tp">ECL · 2025–2026</div>
+      </div>
+    </div>
+
+    <p class="yr-label">Compétitions & événements</p>
+    <div class="ev-list">
+      <div class="ev">
+        <div class="ev-date or2"><span class="ev-m">Nov</span><span class="ev-j">—</span><span class="ev-y">2024</span></div>
+        <div>
+          <div class="ev-cat">Compétition · Vainqueur</div>
+          <div class="ev-tit">Quiz Interne — Ecole Polytechnique de Thiès</div>
+          <div class="ev-lieu">Thiès, Sénégal · Équipe DIC2</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-date"><span class="ev-m">Fév</span><span class="ev-j">—</span><span class="ev-y">2023</span></div>
+        <div>
+          <div class="ev-cat">Hackathon Spatial · Demi-finaliste international</div>
+          <div class="ev-tit">ActInSpace International — CNES / ESA / Aerospace Valley</div>
+          <div class="ev-lieu">Cannes, France</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-date or2"><span class="ev-m">Nov</span><span class="ev-j">—</span><span class="ev-y">2022</span></div>
+        <div>
+          <div class="ev-cat">Hackathon Spatial · Vainqueur 🏆</div>
+          <div class="ev-tit">ActInSpace Sénégal — CNES / ESA / Aerospace Valley</div>
+          <div class="ev-lieu">Dakar, Sénégal</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-date"><span class="ev-m">Jul</span><span class="ev-j">—</span><span class="ev-y">2023</span></div>
+        <div>
+          <div class="ev-cat">Compétition Nationale · Finaliste</div>
+          <div class="ev-tit">Duel Polytech — Compétition nationale de quiz scientifique</div>
+          <div class="ev-lieu">Dakar, Sénégal · Représentant de l'Ecole Polytechnique de Thiès</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTACT ===== -->
+<div id="contact-section" class="tab-section">
+  <div class="sec" style="padding-top:2.5rem;">
+    <div class="sh"><span class="snum">CONTACT</span><span class="stit">Me contacter</span></div>
+    <div class="ct-bloc">
+      <p class="ct-intro">
+        Ouvert aux collaborations académiques, aux projets de recherche, aux stages de fin d'études (à partir d'avril 2026) et à tout échange intellectuel. N'hésitez pas à me contacter pour discuter d'opportunités dans le secteur aérospatial, en design ou en R&D.<br><br>
+        <em style="font-size:13px;color:var(--text3);">Open to academic collaborations, research projects, R&D end-of-studies internships (from April 2026) and scientific discussions.</em>
+      </p>
+      <div class="ct-grid">
+        <div class="ct-row">
+          <div class="ct-ic">✉</div>
+          <div>
+            <span class="ct-lbl">Email</span>
+            <span class="ct-val"><a href="mailto:el-hadji-djibril.diallo@etu.ec-lyon.fr">el-hadji-djibril.diallo@etu.ec-lyon.fr</a></span>
+          </div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-ic">☏</div>
+          <div>
+            <span class="ct-lbl">Téléphone</span>
+            <span class="ct-val"><a href="tel:+33758515636">+33 7 58 51 56 36</a></span>
+          </div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-ic">in</div>
+          <div>
+            <span class="ct-lbl">LinkedIn</span>
+            <span class="ct-val"><a href="https://linkedin.com" target="_blank">Profil LinkedIn →</a></span>
+          </div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-ic" style="font-size:11px;">RG</div>
+          <div>
+            <span class="ct-lbl">ResearchGate</span>
+            <span class="ct-val"><a href="https://researchgate.net" target="_blank">Profil ResearchGate →</a></span>
+          </div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-ic">📍</div>
+          <div>
+            <span class="ct-lbl">Localisation</span>
+            <span class="ct-val">Lyon, France</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:10px;">Langues</div>
+    <div class="lang-row">
+      <div class="lang"><div class="lnom">Français</div><div class="lniv">Courant</div></div>
+      <div class="lang"><div class="lnom">English</div><div class="lniv">Professionnel</div></div>
+      <div class="lang"><div class="lnom">Wolof</div><div class="lniv">Langue maternelle</div></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /page -->
+
+<footer>
+  <div class="fi">
+    <span class="ft">© 2025 El Hadji Djibril DIALLO · Ecole Centrale de Lyon · Ingénierie Aérospatiale</span>
+    <span class="fo">Propulsion · Recherche · Écriture</span>
+  </div>
+</footer>
+
+<script>
+function show(n, el){
+  document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('on'));
+  const s = document.getElementById(n + '-section');
+  if(s) s.classList.add('active');
+  if(el) el.classList.add('on');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function toggleNav(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+function closeNav(){
+  document.getElementById('navLinks').classList.remove('open');
+}
+</script>
+</body>
+</html>
